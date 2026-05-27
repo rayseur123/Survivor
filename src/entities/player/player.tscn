@@ -17,4 +17,5 @@ shape = SubResource("BoxShape3D_s8n7f")
 mesh = SubResource("BoxMesh_4m8ck")
 
 [node name="Camera" parent="." unique_id=1011451072 instance=ExtResource("2_vt6n5")]
+unique_name_in_owner = true
 camera_distance = 4.0
