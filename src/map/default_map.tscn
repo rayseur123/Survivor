@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bapjpilu53xjg"]
+
+[ext_resource type="PackedScene" uid="uid://bpcb2dkdbngmv" path="res://src/entities/player/player.tscn" id="1_fwp5n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h0kqs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fwp5n"]
+
+[node name="DefaultMap" type="Node3D" unique_id=1531866436]
+
+[node name="RigidBody3D" type="StaticBody3D" parent="." unique_id=1000803969]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -1.9881517, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1370975347]
+mesh = SubResource("BoxMesh_h0kqs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1782353268]
+shape = SubResource("BoxShape3D_fwp5n")
+
+[node name="Player" parent="." unique_id=1557003198 instance=ExtResource("1_fwp5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6730379, 0)

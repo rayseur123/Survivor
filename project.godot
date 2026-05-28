@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Survivor"
-run/main_scene="uid://novk8cnoevfm"
+run/main_scene="uid://bapjpilu53xjg"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
