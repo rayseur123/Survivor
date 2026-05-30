@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bpcb2dkdbngmv"]
+
+[ext_resource type="Script" uid="uid://cpjbef3v1hae2" path="res://src/entities/player/player.gd" id="1_4m8ck"]
+[ext_resource type="PackedScene" uid="uid://cj7nbgvbdicda" path="res://src/core/camera/camera.tscn" id="2_vt6n5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s8n7f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4m8ck"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1557003198]
+script = ExtResource("1_4m8ck")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1623371653]
+shape = SubResource("BoxShape3D_s8n7f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1492453405]
+mesh = SubResource("BoxMesh_4m8ck")
+
+[node name="Camera" parent="." unique_id=1011451072 instance=ExtResource("2_vt6n5")]
+unique_name_in_owner = true
+camera_distance = 4.0
