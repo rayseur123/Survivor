@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bjh6vhbneyd17"]
+
+[ext_resource type="Script" uid="uid://d0myyde3bxp5q" path="res://src/core/net/net.gd" id="1_xa0ds"]
+
+[node name="Net" type="Control" unique_id=162168409]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xa0ds")
+
+[node name="createClient" type="Button" parent="." unique_id=1273623601]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 187.0
+offset_right = 442.0
+offset_bottom = 332.0
+text = "Client"
+
+[node name="createServer" type="Button" parent="." unique_id=1689614451]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 190.0
+offset_right = 772.0
+offset_bottom = 334.0
+text = "Server"
+
+[connection signal="pressed" from="createClient" to="." method="_on_create_client_pressed"]
+[connection signal="pressed" from="createServer" to="." method="_on_create_server_pressed"]

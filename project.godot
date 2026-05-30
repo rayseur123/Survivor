@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Survivor"
-run/main_scene="uid://bapjpilu53xjg"
+run/main_scene="uid://bjh6vhbneyd17"
 config/features=PackedStringArray("4.6", "Forward Plus")
 
 [input]
