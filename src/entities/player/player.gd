@@ -12,13 +12,13 @@ func _physics_process(delta: float) -> void:
 
 func _handle_player_action(delta: float) -> void:
 	_handle_player_gravity(delta)
-	_handle_player_deplacement(delta)
+	_handle_player_deplacement()
 
 func _handle_player_gravity(delta: float) -> void:
 	if (not is_on_floor()):
 		velocity.y -= gravity * delta
 
-func _handle_player_deplacement(delta: float) -> void:
+func _handle_player_deplacement() -> void:
 	var forward = -camera_node.global_transform.basis.z
 	var right = camera_node.global_transform.basis.x
 	forward.y = 0
