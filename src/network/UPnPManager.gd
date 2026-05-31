@@ -16,7 +16,7 @@ enum UpnpStatus {
 
 func _port_mapping() -> UPNP.UPNPResult:
 	var res: UPNP.UPNPResult
-	res = _upnp.add_port_mapping(port, 0, "The best survivor game", "UDP", 60) as UPNP.UPNPResult
+	res = _upnp.add_port_mapping(port, 0, "The best survivor game", "UDP") as UPNP.UPNPResult
 	
 	call_deferred("_port_mapping_done")
 	return res
@@ -52,7 +52,7 @@ func _discover_done() -> void:
 		push_warning("Unable to use UPnP defaulting to local on port: ", NetworkConfig.DEFAUL_PORT)
 		return
 	_port_mapping_timer()
-	_timer.start()
+	_timer.start(NetworkConfig.UPNP_TIMER)
 
 func _ready() -> void:
 	if multiplayer.is_server():
