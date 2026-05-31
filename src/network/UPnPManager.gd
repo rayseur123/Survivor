@@ -65,4 +65,5 @@ func _ready() -> void:
 func _exit_tree():
 	if multiplayer.is_server():
 		return
+	_upnp.delete_port_mapping(port)
 	_thread.wait_to_finish()
