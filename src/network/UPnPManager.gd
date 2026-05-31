@@ -16,6 +16,8 @@ enum UpnpStatus {
 
 func _port_mapping() -> UPNP.UPNPResult:
 	var res: UPNP.UPNPResult
+	external_address = _upnp.query_external_address()
+	print("External ip: ", external_address)
 	res = _upnp.add_port_mapping(port, 0, "The best survivor game", "UDP") as UPNP.UPNPResult
 	
 	call_deferred("_port_mapping_done")
@@ -55,15 +57,23 @@ func _discover_done() -> void:
 	_timer.start(NetworkConfig.UPNP_TIMER)
 
 func _ready() -> void:
-	if multiplayer.is_server():
+	if !multiplayer.is_server():
 		return
 	_upnp = UPNP.new()
 	_thread = Thread.new()
 	_timer.timeout.connect(_port_mapping_timer)
 	_thread.start(_discover, Thread.PRIORITY_LOW)
 
-func _exit_tree():
-	if multiplayer.is_server():
+func _cleanup() -> void:
+	if !multiplayer.is_server():
 		return
+	print("UPnPManager: cleanup")
 	_upnp.delete_port_mapping(port)
 	_thread.wait_to_finish()
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		_cleanup()
+	
+func _exit_tree():
+	_cleanup()
