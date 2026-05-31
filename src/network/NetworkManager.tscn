@@ -10,5 +10,4 @@ script = ExtResource("1_ho0ho")
 script = ExtResource("2_ocqc3")
 
 [node name="PortTimer" type="Timer" parent="UPnPManager" unique_id=509622652]
-wait_time = 20.0
 ignore_time_scale = true
