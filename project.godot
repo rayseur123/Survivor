@@ -11,7 +11,12 @@ config_version=5
 [application]
 
 config/name="Survivor"
+run/main_scene="uid://novk8cnoevfm"
 config/features=PackedStringArray("4.6", "Forward Plus")
+
+[autoload]
+
+NetworkManager="*uid://buoy7qa8isckg"
 
 [physics]
 
