@@ -1,7 +1,7 @@
 extends Node
 
-@onready var _upnp := UPNP.new();
-@onready var _thread := Thread.new();
+var _upnp: UPNP;
+var _thread: Thread;
 @onready var _timer: Timer = $PortTimer
 var status := UpnpStatus.WAITING
 var external_address: String;
@@ -55,10 +55,14 @@ func _discover_done() -> void:
 	_timer.start()
 
 func _ready() -> void:
+	if multiplayer.is_server():
+		return
 	_upnp = UPNP.new()
 	_thread = Thread.new()
 	_timer.timeout.connect(_port_mapping_timer)
 	_thread.start(_discover, Thread.PRIORITY_LOW)
 
 func _exit_tree():
+	if multiplayer.is_server():
+		return
 	_thread.wait_to_finish()
