@@ -57,16 +57,12 @@ func _discover_done() -> void:
 	_timer.start(NetworkConfig.UPNP_TIMER)
 
 func _ready() -> void:
-	if !multiplayer.is_server():
-		return
 	_upnp = UPNP.new()
 	_thread = Thread.new()
 	_timer.timeout.connect(_port_mapping_timer)
 	_thread.start(_discover, Thread.PRIORITY_LOW)
 
 func _cleanup() -> void:
-	if !multiplayer.is_server():
-		return
 	print("UPnPManager: cleanup")
 	_upnp.delete_port_mapping(port)
 	_thread.wait_to_finish()
