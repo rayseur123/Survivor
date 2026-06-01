@@ -7,6 +7,14 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_4m8ck"]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_vt6n5"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [node name="Player" type="CharacterBody3D" unique_id=1557003198]
 script = ExtResource("1_4m8ck")
 
@@ -19,3 +27,6 @@ mesh = SubResource("BoxMesh_4m8ck")
 [node name="Camera" parent="." unique_id=1011451072 instance=ExtResource("2_vt6n5")]
 unique_name_in_owner = true
 camera_distance = 4.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=23740732]
+replication_config = SubResource("SceneReplicationConfig_vt6n5")

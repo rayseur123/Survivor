@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bjh6vhbneyd17"]
 
 [ext_resource type="Script" uid="uid://d0myyde3bxp5q" path="res://src/core/net/net.gd" id="1_xa0ds"]
+[ext_resource type="PackedScene" uid="uid://bapjpilu53xjg" path="res://src/map/default_map.tscn" id="2_7ewmd"]
+[ext_resource type="PackedScene" uid="uid://bpcb2dkdbngmv" path="res://src/entities/player/player.tscn" id="3_bimyl"]
 
 [node name="Net" type="Control" unique_id=162168409]
 layout_mode = 3
@@ -10,6 +12,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xa0ds")
+map = ExtResource("2_7ewmd")
+player = ExtResource("3_bimyl")
 
 [node name="createClient" type="Button" parent="." unique_id=1273623601]
 layout_mode = 0
@@ -26,6 +30,10 @@ offset_top = 190.0
 offset_right = 772.0
 offset_bottom = 334.0
 text = "Server"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=844106282]
+_spawnable_scenes = PackedStringArray("uid://bapjpilu53xjg")
+spawn_path = NodePath("..")
 
 [connection signal="pressed" from="createClient" to="." method="_on_create_client_pressed"]
 [connection signal="pressed" from="createServer" to="." method="_on_create_server_pressed"]

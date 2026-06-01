@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://bapjpilu53xjg"]
 
-[ext_resource type="PackedScene" uid="uid://bpcb2dkdbngmv" path="res://src/entities/player/player.tscn" id="1_fwp5n"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_h0kqs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fwp5n"]
@@ -17,8 +15,9 @@ mesh = SubResource("BoxMesh_h0kqs")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1782353268]
 shape = SubResource("BoxShape3D_fwp5n")
 
-[node name="Player" parent="." unique_id=1557003198 instance=ExtResource("1_fwp5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6730379, 0)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=611825411]
 transform = Transform3D(1, 0, 0, 0, 0.95556176, 0.29479092, 0, -0.29479092, 0.95556176, 0, 6.4242854, 0)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1736038876]
+_spawnable_scenes = PackedStringArray("uid://bpcb2dkdbngmv")
+spawn_path = NodePath("..")
