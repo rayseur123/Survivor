@@ -6,7 +6,6 @@ extends Control
 @export var player: PackedScene
 
 var current_map
-
 var id = 0
 
 func _ready() -> void:
@@ -45,7 +44,6 @@ func _on_player_connected(id_client) -> void:
 		client_player.name = str(id_client)
 		client_player.set_multiplayer_authority(id_client)
 		current_map.add_child(client_player)
-		
 
 func _on_connected_ok() -> void:
 	print("Connection ok")

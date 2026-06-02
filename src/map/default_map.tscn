@@ -7,7 +7,7 @@
 [node name="DefaultMap" type="Node3D" unique_id=1531866436]
 
 [node name="RigidBody3D" type="StaticBody3D" parent="." unique_id=1000803969]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, -1.9881517, 0)
+transform = Transform3D(64.17335, 0, 0, 0, 5, 0, 0, 0, 53.436573, 0, -1.9881517, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1370975347]
 mesh = SubResource("BoxMesh_h0kqs")
