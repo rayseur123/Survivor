@@ -17,7 +17,6 @@ enum UpnpStatus {
 func _port_mapping() -> UPNP.UPNPResult:
 	var res: UPNP.UPNPResult
 	external_address = _upnp.query_external_address()
-	print("External ip: ", external_address)
 	res = _upnp.add_port_mapping(port, 0, "The best survivor game", "UDP") as UPNP.UPNPResult
 	
 	call_deferred("_port_mapping_done")
@@ -29,7 +28,8 @@ func _port_mapping_done() -> void:
 	if res != UPNP.UPNP_RESULT_SUCCESS or !(_upnp.get_gateway() and _upnp.get_gateway().is_valid_gateway()):
 		status = UpnpStatus.UNAVAILABLE
 		push_error(str(res))
-	print("Successfully mapped: ", port)
+		return
+	print("Successfully mapped: ", external_address, ":", port)
 
 func _port_mapping_timer() -> void:
 	if status == UpnpStatus.UNAVAILABLE:
