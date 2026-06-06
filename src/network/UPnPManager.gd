@@ -1,7 +1,7 @@
 extends Node
 
-var _upnp: UPNP;
-var _thread: Thread;
+var _upnp := UPNP.new();
+var _thread := Thread.new();
 @onready var _timer: Timer = $PortTimer
 var status := UpnpStatus.WAITING
 var external_address: String;
@@ -57,13 +57,10 @@ func _discover_done() -> void:
 	_timer.start(NetworkConfig.UPNP_TIMER)
 
 func _ready() -> void:
-	_upnp = UPNP.new()
-	_thread = Thread.new()
 	_timer.timeout.connect(_port_mapping_timer)
 	_thread.start(_discover, Thread.PRIORITY_LOW)
 
 func _cleanup() -> void:
-	print("UPnPManager: cleanup")
 	_upnp.delete_port_mapping(port)
 	_thread.wait_to_finish()
 
