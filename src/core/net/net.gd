@@ -37,6 +37,7 @@ func load_map() -> void:
 	server_player.name = "1"
 	server_player.set_multiplayer_authority(1)
 	current_map.add_child(server_player)
+	PlayerManager.add_player(server_player)
 
 func _on_player_connected(id_client) -> void:
 	if (multiplayer.is_server()):
@@ -44,6 +45,7 @@ func _on_player_connected(id_client) -> void:
 		client_player.name = str(id_client)
 		client_player.set_multiplayer_authority(id_client)
 		current_map.add_child(client_player)
+		PlayerManager.add_player(client_player)
 
 func _on_connected_ok() -> void:
 	print("Connection ok")
@@ -56,6 +58,7 @@ func _on_server_disconnected() -> void:
 
 func _on_player_disconnected(id_client) -> void:
 	if multiplayer.is_server():
+		PlayerManager.remove_player(str(id_client))
 		print("THE CLIENT : ", id_client, " LEAVES")
 
 func _on_create_client_pressed() -> void:

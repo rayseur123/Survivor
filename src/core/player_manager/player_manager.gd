@@ -5,8 +5,8 @@ var players = {}
 func add_player(player_node: Node3D) -> void:
 	players[player_node.name] = player_node
 	
-func remove_player(player_node: Node3D) -> void:
-	players.erase(player_node.name)
+func remove_player(player_name: String) -> void:
+	players.erase(player_name)
 	
 func get_nearest_player(from_position: Vector3) -> Node3D:
 	var nearest = null
