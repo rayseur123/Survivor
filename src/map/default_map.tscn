@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bapjpilu53xjg"]
 
+[ext_resource type="PackedScene" uid="uid://dkfq6de8b5apo" path="res://src/entities/enemies/defaultEnemie.tscn" id="1_fwp5n"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_h0kqs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fwp5n"]
@@ -21,3 +23,6 @@ transform = Transform3D(1, 0, 0, 0, 0.95556176, 0.29479092, 0, -0.29479092, 0.95
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1736038876]
 _spawnable_scenes = PackedStringArray("uid://bpcb2dkdbngmv")
 spawn_path = NodePath("..")
+
+[node name="DefaultEnemie" parent="." unique_id=1314856678 instance=ExtResource("1_fwp5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.912601, 10.335986, 0)

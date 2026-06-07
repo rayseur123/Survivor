@@ -15,5 +15,5 @@ func get_nearest_player(from_position: Vector3) -> Node3D:
 		var dist = from_position.distance_to(player.global_position)
 		if dist < nearest_dist:
 			nearest_dist = dist
-			nearest = players
+			nearest = player
 	return nearest
