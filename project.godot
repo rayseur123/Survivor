@@ -17,6 +17,11 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 [autoload]
 
 NetworkManager="*uid://buoy7qa8isckg"
+PlayerManager="*uid://c1l8tm31xmd8q"
+
+[global_group]
+
+player="The basic player groupe"
 
 [input]
 
